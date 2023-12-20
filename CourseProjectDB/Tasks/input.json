@@ -1,0 +1,26 @@
+[
+  {
+    "product_name": "Product1",
+    "category_id": 1,
+    "price": 11,
+    "description": "Description of Product 1",
+    "image_url": "https://example.com/image1.jpg",
+    "quantity": 5
+  },
+  {
+    "product_name": "Product2",
+    "category_id": 2,
+    "price": 20,
+    "description": "Description of Product 2",
+    "image_url": "https://example.com/image2.jpg",
+    "quantity": 8
+  },
+  {
+    "product_name": "Product3",
+    "category_id": 1,
+    "price": 16,
+    "description": "Description of Product 3",
+    "image_url": "https://example.com/image3.jpg",
+    "quantity": 3
+  }
+]

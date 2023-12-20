@@ -1,0 +1,654 @@
+C:\Users\User>sqlplus / as sysdba;
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Dec 17 13:37:34 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> alter session set container = TEST_PDB;
+
+Session altered.
+
+SQL> shutdown immediate;
+Pluggable Database closed.
+SQL> startup mount;
+SP2-0714: invalid combination of STARTUP options
+SQL>  startup mount;
+SP2-0714: invalid combination of STARTUP options
+SQL> startup mount;
+SP2-0714: invalid combination of STARTUP options
+SQL> alter plaggable database open
+  2  ;
+alter plaggable database open
+      *
+ERROR at line 1:
+ORA-00940: invalid ALTER command
+
+
+SQL> alter plaggable database TEST_PDB open
+  2  ;
+alter plaggable database TEST_PDB open
+      *
+ERROR at line 1:
+ORA-00940: invalid ALTER command
+
+
+SQL> alter pluggable database TEST_PDB open;
+
+Pluggable database altered.
+
+SQL> SP2-0004: Nothing to append.
+SQL> SP2-0004: Nothing to append.
+SQL> ^C
+C:\Users\User>sqlplus / as sysdba'
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Dec 17 13:40:29 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL>  startup mount;
+ORACLE instance started.
+
+Total System Global Area 1610609432 bytes
+Fixed Size                  9855768 bytes
+Variable Size             989855744 bytes
+Database Buffers          603979776 bytes
+Redo Buffers                6918144 bytes
+Database mounted.
+SQL> alter database archivelog;
+
+Database altered.
+
+SQL> alter database open;
+
+Database altered.
+
+SQL> select log_mode from v$database;
+
+LOG_MODE
+------------
+ARCHIVELOG
+
+SQL> SP2-0042: unknown command "s" - rest of line ignored.
+SQL> SP2-0042: unknown command "s" - rest of line ignored.^C
+C:\Users\User>rman target /
+
+Recovery Manager: Release 21.0.0.0.0 - Production on Sun Dec 17 13:41:57 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: XE (DBID=3027971953)
+
+RMAN> backup database format 'C:\Users\User\Desktop\Course_Project_DB_Yashny\CourseProjectDB\backup';
+
+Starting backup at 17-DEC-23
+using target database control file instead of recovery catalog
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=380 device type=DISK
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00001 name=C:\ORACLEDB\ORADATA\XE\SYSTEM01.DBF
+input datafile file number=00003 name=C:\ORACLEDB\ORADATA\XE\SYSAUX01.DBF
+input datafile file number=00004 name=C:\ORACLEDB\ORADATA\XE\UNDOTBS01.DBF
+input datafile file number=00015 name=C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_NEW.DBF
+input datafile file number=00007 name=C:\ORACLEDB\ORADATA\XE\USERS01.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+RMAN-00571: ===========================================================
+RMAN-00569: =============== ERROR MESSAGE STACK FOLLOWS ===============
+RMAN-00571: ===========================================================
+RMAN-03009: failure of backup command on ORA_DISK_1 channel at 12/17/2023 13:42:35
+ORA-19504: failed to create file "C:\USERS\USER\DESKTOP\COURSE_PROJECT_DB_YASHNY\COURSEPROJECTDB\BACKUP"
+ORA-27040: file create error, unable to create file
+OSD-04002: unable to open file
+O/S-Error: (OS 5) ┐┐┐ ┐┐┐
+
+RMAN> backup database;
+
+Starting backup at 17-DEC-23
+using channel ORA_DISK_1
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00001 name=C:\ORACLEDB\ORADATA\XE\SYSTEM01.DBF
+input datafile file number=00003 name=C:\ORACLEDB\ORADATA\XE\SYSAUX01.DBF
+input datafile file number=00004 name=C:\ORACLEDB\ORADATA\XE\UNDOTBS01.DBF
+input datafile file number=00015 name=C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_NEW.DBF
+input datafile file number=00007 name=C:\ORACLEDB\ORADATA\XE\USERS01.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+channel ORA_DISK_1: finished piece 1 at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\022E8SJ4_2_1_1 tag=TAG20231217T134259 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:07
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00010 name=C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSAUX01.DBF
+input datafile file number=00009 name=C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSTEM01.DBF
+input datafile file number=00011 name=C:\ORACLEDB\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
+input datafile file number=00012 name=C:\ORACLEDB\ORADATA\XE\XEPDB1\USERS01.DBF
+input datafile file number=00041 name=C:\ORACLEDB\DBHOMEXE\DATABASE\T1.DAT
+input datafile file number=00042 name=C:\ORACLEDB\DBHOMEXE\DATABASE\T2.DAT
+input datafile file number=00043 name=C:\ORACLEDB\DBHOMEXE\DATABASE\T3.DAT
+input datafile file number=00044 name=C:\ORACLEDB\DBHOMEXE\DATABASE\T4.DAT
+input datafile file number=00040 name=C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_QDATA_NEW.DBF
+input datafile file number=00016 name=C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS2.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+channel ORA_DISK_1: finished piece 1 at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\032E8SJB_3_1_1 tag=TAG20231217T134259 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00046 name=C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSAUX01.DBF
+input datafile file number=00045 name=C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSTEM01.DBF
+input datafile file number=00047 name=C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\UNDOTBS01.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+channel ORA_DISK_1: finished piece 1 at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\042E8SJE_4_1_1 tag=TAG20231217T134259 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00035 name=C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSAUX01.DBF
+input datafile file number=00034 name=C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSTEM01.DBF
+input datafile file number=00036 name=C:\ORACLEDB\ORADATA\XE\YNS_PDB\UNDOTBS01.DBF
+input datafile file number=00037 name=C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_PDB_SYS_TS.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+channel ORA_DISK_1: finished piece 1 at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\052E8SJH_5_1_1 tag=TAG20231217T134259 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00055 name=C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSAUX01.DBF
+input datafile file number=00054 name=C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSTEM01.DBF
+input datafile file number=00056 name=C:\ORACLEDB\ORADATA\XE\TEST_PDB\UNDOTBS01.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+channel ORA_DISK_1: finished piece 1 at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\062E8SJK_6_1_1 tag=TAG20231217T134259 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00006 name=C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+input datafile file number=00005 name=C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+input datafile file number=00008 name=C:\ORACLEDB\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+channel ORA_DISK_1: starting piece 1 at 17-DEC-23
+channel ORA_DISK_1: finished piece 1 at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\072E8SJN_7_1_1 tag=TAG20231217T134259 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+Finished backup at 17-DEC-23
+
+Starting Control File and SPFILE Autobackup at 17-DEC-23
+piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\C-3027971953-20231217-00 comment=NONE
+Finished Control File and SPFILE Autobackup at 17-DEC-23
+
+RMAN> list backup;
+
+
+List of Backup Sets
+===================
+
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+1       Full    1.87G      DISK        00:00:06     17-DEC-23
+        BP Key: 1   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134259
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\022E8SJ4_2_1_1
+  List of Datafiles in backup set 1
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  1       Full 58741049   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\SYSTEM01.DBF
+  3       Full 58741049   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\SYSAUX01.DBF
+  4       Full 58741049   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\UNDOTBS01.DBF
+  7       Full 58741049   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\USERS01.DBF
+  15      Full 58741049   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_NEW.DBF
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+2       Full    766.68M    DISK        00:00:02     17-DEC-23
+        BP Key: 2   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134259
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\032E8SJB_3_1_1
+  List of Datafiles in backup set 2
+  Container ID: 3, PDB Name: XEPDB1
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  9       Full 58741053   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSTEM01.DBF
+  10      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSAUX01.DBF
+  11      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
+  12      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\XEPDB1\USERS01.DBF
+  16      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS2.DBF
+  40      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_QDATA_NEW.DBF
+  41      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\T1.DAT
+  42      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\T2.DAT
+  43      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\T3.DAT
+  44      Full 58741053   17-DEC-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\T4.DAT
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+3       Full    571.24M    DISK        00:00:01     17-DEC-23
+        BP Key: 3   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134259
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\042E8SJE_4_1_1
+  List of Datafiles in backup set 3
+  Container ID: 4, PDB Name: CP_YNS_PDB
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  45      Full 58738888   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSTEM01.DBF
+  46      Full 58738888   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSAUX01.DBF
+  47      Full 58738888   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\UNDOTBS01.DBF
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+4       Full    593.80M    DISK        00:00:02     17-DEC-23
+        BP Key: 4   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134259
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\052E8SJH_5_1_1
+  List of Datafiles in backup set 4
+  Container ID: 5, PDB Name: YNS_PDB
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  34      Full 36112725   11-NOV-23              NO    C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSTEM01.DBF
+  35      Full 36112725   11-NOV-23              NO    C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSAUX01.DBF
+  36      Full 36112725   11-NOV-23              NO    C:\ORACLEDB\ORADATA\XE\YNS_PDB\UNDOTBS01.DBF
+  37      Full 36112725   11-NOV-23              NO    C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_PDB_SYS_TS.DBF
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+5       Full    514.27M    DISK        00:00:01     17-DEC-23
+        BP Key: 5   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134259
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\062E8SJK_6_1_1
+  List of Datafiles in backup set 5
+  Container ID: 6, PDB Name: TEST_PDB
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  54      Full 58738899   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSTEM01.DBF
+  55      Full 58738899   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSAUX01.DBF
+  56      Full 58738899   17-DEC-23              NO    C:\ORACLEDB\ORADATA\XE\TEST_PDB\UNDOTBS01.DBF
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+6       Full    508.88M    DISK        00:00:02     17-DEC-23
+        BP Key: 6   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134259
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\072E8SJN_7_1_1
+  List of Datafiles in backup set 6
+  Container ID: 2, PDB Name: PDB$SEED
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  5       Full 2803253    06-SEP-23              NO    C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+  6       Full 2803253    06-SEP-23              NO    C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+  8       Full 2803253    06-SEP-23              NO    C:\ORACLEDB\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+7       Full    17.95M     DISK        00:00:01     17-DEC-23
+        BP Key: 7   Status: AVAILABLE  Compressed: NO  Tag: TAG20231217T134322
+        Piece Name: C:\ORACLEDB\DBHOMEXE\DATABASE\C-3027971953-20231217-00
+  SPFILE Included: Modification time: 17-DEC-23
+  SPFILE db_unique_name: XE
+  Control File Included: Ckp SCN: 58741074     Ckp time: 17-DEC-23
+
+RMAN> show all;
+
+RMAN configuration parameters for database with db_unique_name XE are:
+CONFIGURE RETENTION POLICY TO REDUNDANCY 1; # default
+CONFIGURE BACKUP OPTIMIZATION OFF; # default
+CONFIGURE DEFAULT DEVICE TYPE TO DISK; # default
+CONFIGURE CONTROLFILE AUTOBACKUP ON; # default
+CONFIGURE CONTROLFILE AUTOBACKUP FORMAT FOR DEVICE TYPE DISK TO '%F'; # default
+CONFIGURE DEVICE TYPE DISK PARALLELISM 1 BACKUP TYPE TO BACKUPSET; # default
+CONFIGURE DATAFILE BACKUP COPIES FOR DEVICE TYPE DISK TO 1; # default
+CONFIGURE ARCHIVELOG BACKUP COPIES FOR DEVICE TYPE DISK TO 1; # default
+CONFIGURE MAXSETSIZE TO UNLIMITED; # default
+CONFIGURE ENCRYPTION FOR DATABASE OFF; # default
+CONFIGURE ENCRYPTION ALGORITHM 'AES128'; # default
+CONFIGURE COMPRESSION ALGORITHM 'BASIC' AS OF RELEASE 'DEFAULT' OPTIMIZE FOR LOAD TRUE ; # default
+CONFIGURE RMAN OUTPUT TO KEEP FOR 7 DAYS; # default
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE; # default
+CONFIGURE SNAPSHOT CONTROLFILE NAME TO 'C:\ORACLEDB\DATABASE\SNCFXE.ORA'; # default
+
+RMAN> report schema;
+
+Report of database schema for database with db_unique_name XE
+
+List of Permanent Datafiles
+===========================
+File Size(MB) Tablespace           RB segs Datafile Name
+---- -------- -------------------- ------- ------------------------
+1    1360     SYSTEM               YES     C:\ORACLEDB\ORADATA\XE\SYSTEM01.DBF
+3    930      SYSAUX               NO      C:\ORACLEDB\ORADATA\XE\SYSAUX01.DBF
+4    115      UNDOTBS1             YES     C:\ORACLEDB\ORADATA\XE\UNDOTBS01.DBF
+5    270      PDB$SEED:SYSTEM      NO      C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+6    320      PDB$SEED:SYSAUX      NO      C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+7    5        USERS                NO      C:\ORACLEDB\ORADATA\XE\USERS01.DBF
+8    100      PDB$SEED:UNDOTBS1    NO      C:\ORACLEDB\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+9    300      XEPDB1:SYSTEM        YES     C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSTEM01.DBF
+10   610      XEPDB1:SYSAUX        NO      C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSAUX01.DBF
+11   195      XEPDB1:UNDOTBS1      YES     C:\ORACLEDB\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
+12   20       XEPDB1:USERS         NO      C:\ORACLEDB\ORADATA\XE\XEPDB1\USERS01.DBF
+15   7        TS_YNS               NO      C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_NEW.DBF
+16   7        XEPDB1:TS_YNS        NO      C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS2.DBF
+34   290      YNS_PDB:SYSTEM       NO      C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSTEM01.DBF
+35   450      YNS_PDB:SYSAUX       NO      C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSAUX01.DBF
+36   100      YNS_PDB:UNDOTBS1     NO      C:\ORACLEDB\ORADATA\XE\YNS_PDB\UNDOTBS01.DBF
+37   10       YNS_PDB:YNS_PDB_SYS_TS NO      C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_PDB_SYS_TS.DBF
+40   10       XEPDB1:YNS_QDATA     NO      C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_QDATA_NEW.DBF
+41   18       XEPDB1:T1            NO      C:\ORACLEDB\DBHOMEXE\DATABASE\T1.DAT
+42   18       XEPDB1:T2            NO      C:\ORACLEDB\DBHOMEXE\DATABASE\T2.DAT
+43   18       XEPDB1:T3            NO      C:\ORACLEDB\DBHOMEXE\DATABASE\T3.DAT
+44   18       XEPDB1:T4            NO      C:\ORACLEDB\DBHOMEXE\DATABASE\T4.DAT
+45   300      CP_YNS_PDB:SYSTEM    NO      C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSTEM01.DBF
+46   420      CP_YNS_PDB:SYSAUX    NO      C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSAUX01.DBF
+47   200      CP_YNS_PDB:UNDOTBS1  NO      C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\UNDOTBS01.DBF
+54   270      TEST_PDB:SYSTEM      NO      C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSTEM01.DBF
+55   350      TEST_PDB:SYSAUX      NO      C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSAUX01.DBF
+56   100      TEST_PDB:UNDOTBS1    NO      C:\ORACLEDB\ORADATA\XE\TEST_PDB\UNDOTBS01.DBF
+
+List of Temporary Files
+=======================
+File Size(MB) Tablespace           Maxsize(MB) Tempfile Name
+---- -------- -------------------- ----------- --------------------
+1    237      TEMP                 32767       C:\ORACLEDB\ORADATA\XE\TEMP01.DBF
+2    35       PDB$SEED:TEMP        32767       C:\ORACLEDB\ORADATA\XE\PDBSEED\TEMP012023-09-06_17-48-11-923-PM.DBF
+3    212      XEPDB1:TEMP          32767       C:\ORACLEDB\ORADATA\XE\XEPDB1\TEMP01.DBF
+4    5        TS_YNS_TEMP          30          C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_TEMP_NEW.DBF
+5    5        XEPDB1:TS_YNS_TEMP   30          C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_TEMP2.DBF
+6    212      YNS_PDB:TEMP         32767       C:\ORACLEDB\ORADATA\XE\YNS_PDB\TEMP012023-09-06_17-48-11-923-PM.DBF
+7    10       YNS_PDB:YNS_PDB_SYS_TS_TEMP 20          C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_PDB_SYS_TS_TEMP.DBF
+8    213      CP_YNS_PDB:TEMP      32767       C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\TEMP012023-09-06_17-48-11-923-PM.DBF
+9    35       TEST_PDB:TEMP        32767       C:\ORACLEDB\ORADATA\XE\TEST_PDB\TEMP012023-09-06_17-48-11-923-PM.DBF
+
+RMAN> ^C
+C:\Users\User>sqlplus / as sysdba;
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Dec 17 13:49:25 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL> drop pluggable database TEST_PDB include datafiles;
+drop pluggable database TEST_PDB include datafiles
+*
+ERROR at line 1:
+ORA-01034: ORACLE not available
+Process ID: 0
+Session ID: 0 Serial number: 0
+
+
+SQL> startup mount;
+ORACLE instance started.
+
+Total System Global Area 1610609432 bytes
+Fixed Size                  9855768 bytes
+Variable Size             989855744 bytes
+Database Buffers          603979776 bytes
+Redo Buffers                6918144 bytes
+Database mounted.
+SQL> alter session set container = TEST_PDB;
+
+Session altered.
+
+SQL> select * from test_table;
+select * from test_table
+              *
+ERROR at line 1:
+ORA-01219: database or pluggable database not open: queries allowed on fixed
+tables or views only
+
+
+SQL> alter pluggable database TEST_PDB open;
+alter pluggable database TEST_PDB open
+*
+ERROR at line 1:
+ORA-65054: Cannot open a pluggable database in the desired mode.
+
+
+SQL> alter database open;
+alter database open
+*
+ERROR at line 1:
+ORA-65054: Cannot open a pluggable database in the desired mode.
+
+
+SQL> SP2-0004: Nothing to append.
+SQL> SP2-0004: Nothing to append.
+^C
+C:\Users\User>sqlplus / as sysdba;
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Dec 17 13:53:33 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> alter database open;
+
+Database altered.
+
+SQL> alter pluggable database TEST_PDB open;
+alter pluggable database TEST_PDB open
+*
+ERROR at line 1:
+ORA-01157: cannot identify/lock data file 54 - see DBWR trace file
+ORA-01110: data file 54: 'C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSTEM01.DBF'
+
+
+SQL> SP2-0004: Nothing to append.
+SQL> rman target /
+SP2-0734: unknown command beginning "rman targe..." - rest of line ignored.
+SQL>   1* alter pluggable database TEST_PDB open
+^C
+C:\Users\User>
+
+C:\Users\User>rman target /
+
+Recovery Manager: Release 21.0.0.0.0 - Production on Sun Dec 17 13:54:29 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: XE (DBID=3027971953)
+
+RMAN> restore database;
+
+Starting restore at 17-DEC-23
+using target database control file instead of recovery catalog
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=624 device type=DISK
+
+skipping datafile 5; already restored to file C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+skipping datafile 6; already restored to file C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+skipping datafile 8; already restored to file C:\ORACLEDB\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+skipping datafile 34; already restored to file C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSTEM01.DBF
+skipping datafile 35; already restored to file C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSAUX01.DBF
+skipping datafile 36; already restored to file C:\ORACLEDB\ORADATA\XE\YNS_PDB\UNDOTBS01.DBF
+skipping datafile 37; already restored to file C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_PDB_SYS_TS.DBF
+skipping datafile 45; already restored to file C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSTEM01.DBF
+skipping datafile 46; already restored to file C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSAUX01.DBF
+skipping datafile 47; already restored to file C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\UNDOTBS01.DBF
+skipping datafile 55; already restored to file C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSAUX01.DBF
+skipping datafile 56; already restored to file C:\ORACLEDB\ORADATA\XE\TEST_PDB\UNDOTBS01.DBF
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00001 to C:\ORACLEDB\ORADATA\XE\SYSTEM01.DBF
+channel ORA_DISK_1: restoring datafile 00003 to C:\ORACLEDB\ORADATA\XE\SYSAUX01.DBF
+channel ORA_DISK_1: restoring datafile 00004 to C:\ORACLEDB\ORADATA\XE\UNDOTBS01.DBF
+channel ORA_DISK_1: restoring datafile 00007 to C:\ORACLEDB\ORADATA\XE\USERS01.DBF
+channel ORA_DISK_1: restoring datafile 00015 to C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_NEW.DBF
+channel ORA_DISK_1: reading from backup piece C:\ORACLEDB\DBHOMEXE\DATABASE\022E8SJ4_2_1_1
+RMAN-00571: ===========================================================
+RMAN-00569: =============== ERROR MESSAGE STACK FOLLOWS ===============
+RMAN-00571: ===========================================================
+RMAN-03002: failure of restore command at 12/17/2023 13:54:41
+ORA-19870: error while restoring backup piece C:\ORACLEDB\DBHOMEXE\DATABASE\022E8SJ4_2_1_1
+ORA-19573: cannot obtain exclusive enqueue for datafile 1
+ORA-19890: data file already in use
+ORA-45909: restore, recover or block media recovery may be in progress
+
+RMAN> ^C
+C:\Users\User>sqlplus / as sysdba
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Dec 17 13:56:48 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> shutdown immediate;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL> startup mount;
+ORACLE instance started.
+
+Total System Global Area 1610609432 bytes
+Fixed Size                  9855768 bytes
+Variable Size             989855744 bytes
+Database Buffers          603979776 bytes
+Redo Buffers                6918144 bytes
+Database mounted.
+SQL> SP2-0042: unknown command "s" - rest of line ignored.
+SQL> SP2-0042: unknown command "s" - rest of line ignored.
+^C
+C:\Users\User>rman target /
+
+Recovery Manager: Release 21.0.0.0.0 - Production on Sun Dec 17 13:57:21 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: XE (DBID=3027971953, not open)
+
+RMAN> restore database;
+
+Starting restore at 17-DEC-23
+using target database control file instead of recovery catalog
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=375 device type=DISK
+
+skipping datafile 5; already restored to file C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+skipping datafile 6; already restored to file C:\ORACLEDB\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+skipping datafile 8; already restored to file C:\ORACLEDB\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+skipping datafile 34; already restored to file C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSTEM01.DBF
+skipping datafile 35; already restored to file C:\ORACLEDB\ORADATA\XE\YNS_PDB\SYSAUX01.DBF
+skipping datafile 36; already restored to file C:\ORACLEDB\ORADATA\XE\YNS_PDB\UNDOTBS01.DBF
+skipping datafile 37; already restored to file C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_PDB_SYS_TS.DBF
+skipping datafile 45; already restored to file C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSTEM01.DBF
+skipping datafile 46; already restored to file C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\SYSAUX01.DBF
+skipping datafile 47; already restored to file C:\ORACLEDB\ORADATA\XE\CP_YNS_PDB\UNDOTBS01.DBF
+skipping datafile 55; already restored to file C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSAUX01.DBF
+skipping datafile 56; already restored to file C:\ORACLEDB\ORADATA\XE\TEST_PDB\UNDOTBS01.DBF
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00001 to C:\ORACLEDB\ORADATA\XE\SYSTEM01.DBF
+channel ORA_DISK_1: restoring datafile 00003 to C:\ORACLEDB\ORADATA\XE\SYSAUX01.DBF
+channel ORA_DISK_1: restoring datafile 00004 to C:\ORACLEDB\ORADATA\XE\UNDOTBS01.DBF
+channel ORA_DISK_1: restoring datafile 00007 to C:\ORACLEDB\ORADATA\XE\USERS01.DBF
+channel ORA_DISK_1: restoring datafile 00015 to C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS_NEW.DBF
+channel ORA_DISK_1: reading from backup piece C:\ORACLEDB\DBHOMEXE\DATABASE\022E8SJ4_2_1_1
+channel ORA_DISK_1: piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\022E8SJ4_2_1_1 tag=TAG20231217T134259
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:07
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00009 to C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSTEM01.DBF
+channel ORA_DISK_1: restoring datafile 00010 to C:\ORACLEDB\ORADATA\XE\XEPDB1\SYSAUX01.DBF
+channel ORA_DISK_1: restoring datafile 00011 to C:\ORACLEDB\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
+channel ORA_DISK_1: restoring datafile 00012 to C:\ORACLEDB\ORADATA\XE\XEPDB1\USERS01.DBF
+channel ORA_DISK_1: restoring datafile 00016 to C:\ORACLEDB\DBHOMEXE\DATABASE\TS_YNS2.DBF
+channel ORA_DISK_1: restoring datafile 00040 to C:\ORACLEDB\DBHOMEXE\DATABASE\YNS_QDATA_NEW.DBF
+channel ORA_DISK_1: restoring datafile 00041 to C:\ORACLEDB\DBHOMEXE\DATABASE\T1.DAT
+channel ORA_DISK_1: restoring datafile 00042 to C:\ORACLEDB\DBHOMEXE\DATABASE\T2.DAT
+channel ORA_DISK_1: restoring datafile 00043 to C:\ORACLEDB\DBHOMEXE\DATABASE\T3.DAT
+channel ORA_DISK_1: restoring datafile 00044 to C:\ORACLEDB\DBHOMEXE\DATABASE\T4.DAT
+channel ORA_DISK_1: reading from backup piece C:\ORACLEDB\DBHOMEXE\DATABASE\032E8SJB_3_1_1
+channel ORA_DISK_1: piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\032E8SJB_3_1_1 tag=TAG20231217T134259
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00054 to C:\ORACLEDB\ORADATA\XE\TEST_PDB\SYSTEM01.DBF
+channel ORA_DISK_1: reading from backup piece C:\ORACLEDB\DBHOMEXE\DATABASE\062E8SJK_6_1_1
+channel ORA_DISK_1: piece handle=C:\ORACLEDB\DBHOMEXE\DATABASE\062E8SJK_6_1_1 tag=TAG20231217T134259
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:01
+Finished restore at 17-DEC-23
+
+RMAN> recover database;
+
+Starting recover at 17-DEC-23
+using channel ORA_DISK_1
+
+starting media recovery
+media recovery complete, elapsed time: 00:00:02
+
+Finished recover at 17-DEC-23
+
+RMAN>
+^C
+C:\Users\User>
+
+C:\Users\User>sqlplus / as sysdba;
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun Dec 17 13:58:07 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> alter database open
+  2  ;
+
+Database altered.
+
+SQL> alter session set container = test_pdb;
+
+Session altered.
+
+SQL> select * from test_table;
+select * from test_table
+              *
+ERROR at line 1:
+ORA-01219: database or pluggable database not open: queries allowed on fixed
+tables or views only
+
+
+SQL> alter pluggable database test_pdb open;
+
+Pluggable database altered.
+
+SQL> select * from test_table;
+
+   COLUMN1
+----------
+         1
+         2
+         3

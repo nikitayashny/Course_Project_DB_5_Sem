@@ -1,0 +1,22 @@
+sqlplus / as sysdba
+shutdown immediate;
+startup mount;
+alter database archivelog;
+alter database open;
+rman target /    -- это пиши просто в cmd от имени администратора
+backup database;
+sqlplus / as sysdba;
+shutdown immediate;
+-- удалить какие то системные файлы (находятся по пути oradata - XE( ORCL может у тебя) - название твоей пдб( там можешь хоть све снести)
+startup mount;
+alter database open;
+alter pluggable database CP_YNS_PDB(твоя пдб) open; -- должно не получится (это просто ей покажешь что удалилась бд)
+shutdown immediate;
+startup mount;
+rman target / -- опять в cmd от админа
+restore database;
+recover database;
+sqlplus / as sysdba;
+alter database open;
+alter pluggable database CP_YNS_PDB open; -- должно получиться
+-- все данные останутся как прежде

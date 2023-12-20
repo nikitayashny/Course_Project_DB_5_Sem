@@ -1,0 +1,27 @@
+expdp system/123@CP SCHEMAS=system DIRECTORY=oracle_base DUMPFILE=cpyns.dmp
+вместо system/123@CP твоя строка подключения имяпользователя/пароль@можно localhost 1521 можещб настроить в tnsnames
+schema = тут имя схемы пользователя
+directory = можешь оставить как у меня
+dumpfile тоже
+
+после этого можешь сносить бд
+создаешь новую постую пдб, в ней пользователя и даёшь ему
+
+GRANT UNLIMITED TABLESPACE TO <имя_пользователя>;
+grant create session to <имя_пользователя>;
+
+impdp system/123@(новое подключение) REMAP_SCHEMA=system:(тут имя схемы нового пользователя) DIRECTORY=oracle_base DUMPFILE=cpyns.dmp
+всё ты поменяла схему, теперь твои данные будут в этой пдб
+чтобы перенести всех пользователей смотри ниже(там просто схемы через запятую) и сменять иъ через запятую
+
+
+expdp system/123@CP directory=dpump_dir dumpfile=save.dmp logfile=expdp_users.log schemas=system,cp_yns_user_1, cp_yns_admin_1, cp_yns_admin_1, cp_yns_guest
+impdp system/123@target_db directory=dpump_dir dumpfile=save.dmp logfile=impdp_users.log remap_schema=user1:target_user1 remap_schema=user2:target_user2
+
+
+
+
+
+-- это у меня не получилось но вроде можно всю пдб
+expdp system/123@CP directory=oracle_base dumpfile=pdb.dmp logfile=expdp_pdb.log full=yes
+impdp system/123@TEST2 REMAP_SCHEMA=CP_YNS_PDB:TEST_PDB2 DIRECTORY=oracle_base DUMPFILE=cpyns.dmp
